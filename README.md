@@ -16,7 +16,7 @@
 After cloning this repo, install dependencies
 ```yaml
 # [OPTIONAL] create conda environment
-conda create --name abGAN-py38 python=3.8
+conda create --name Rg-GAN-py38 python=3.8
 conda activate abGAN-py38
 
 # install requirements
@@ -41,7 +41,7 @@ python run.py experiment=train_cifar10_gan.yaml trainer.max_epochs=200 datamodul
 ```
 ## 📜  License
 
-This project is licensed under the Apache 2.0 License – see the [LICENSE](LICENSE) file for details. You are free to use, modify, and distribute αβ-GAN in either commercial or academic projects under the terms of this license.
+This project is licensed under the Apache 2.0 License – see the [LICENSE](LICENSE) file for details. You are free to use, modify, and distribute Rg-GAN in either commercial or academic projects under the terms of this license.
 
 ## 📚 Citation
 
