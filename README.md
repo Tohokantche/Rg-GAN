@@ -9,6 +9,10 @@
 
 </div>
 
+This repository contains code for our paper: "The residual generator: An improved divergence minimization framework for GAN"
+
+- [Paper Link](https://www.sciencedirect.com/science/article/abs/pii/S0031320321004039)
+  
 ## Abstract
 >GAN is a generative modelling framework which has been proven as able to minimise various types of divergence measures under an optimal discriminator. However, there is a gap between the loss function of GAN used in theory and in practice. In theory, the proof of the Jensen divergence minimisation involves the min-max criterion, but in practice the non-saturating criterion is instead used to avoid gradient vanishing. We argue that the formulation of divergence minimization via GAN is biased and may yield a poor convergence of the algorithm. In this paper, we propose the Residual Generator for GAN (Rg-GAN), which is inspired by the closed-loop control theory, to bridge the gap between theory and practice. Rg-GAN minimizes the residual between the loss of the generated data to be real and the loss of the generated data to be fake from the perspective of the discriminator. In this setting, the loss terms of the generator depend only on the generated data and therefore contribute to the optimisation of the model. We formulate the residual generator for standard GAN and least-squares GAN and show that they are equivalent to the minimisation of reverse-KL divergence and a novel instance of f-divergence, respectively. Furthermore, we prove that Rg-GAN can be reduced to Integral Probability Metrics (IPMs) GANs (e.g., Wasserstein GAN) and bridge the gap between IPMs and f-divergence. Additionally, we further improve on Rg-GAN by proposing a loss function for the discriminator that has a better discrimination ability. Experiments on synthetic and natural images data sets show that Rg-GAN is robust to mode collapse, and improves the generation quality of GAN in terms of FID and IS scores.
 
