@@ -69,8 +69,7 @@ class MNISTGANModel(LightningModule):
         self.log_dict({"/".join(("test", k)): v for k, v in log_dict.items()})
         return None
 
-    # real_data_target and gen_data_target can be merged, we only separated them for clarity
-    # Moreover we provide the flexibility of setting the coding scheme of the label
+
     @staticmethod
     def real_data_target(size:int, l_value:float=1) -> Tensor:
         data = Variable(l_value*torch.ones(size, 1))
@@ -145,7 +144,7 @@ class MNISTGANModel(LightningModule):
 
     def on_epoch_end(self):
 
-        # Implement functionality to log predicted images to wandb  at the end of each epoch
+        #  Implement functionality to log predicted images to wandb  at the end of each epoch
         #  Create fake images
         gen_data = self.generator(self.fixed_noise, self.fixed_label)
         for logger in self.trainer.logger:
