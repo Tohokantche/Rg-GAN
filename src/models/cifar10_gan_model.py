@@ -63,7 +63,6 @@ class CIFAR10GANModel(LightningModule):
         return None
 
     def test_step(self, batch, batch_idx) -> Union[Tensor, Dict[str, Any], None]:
-        #  if you have time, try implementing a test step
         log_dict, loss = self.step(batch, batch_idx)
         self.log_dict({"/".join(("test", k)): v for k, v in log_dict.items()})
         return None
@@ -104,9 +103,8 @@ class CIFAR10GANModel(LightningModule):
         gen_input_labels = Variable(labels)
 
         if optimizer_idx == 0 or not self.training:
-            #  generate images and calculate the adversarial loss for the generator
-            # HINT: when optimizer_idx == 0 the model is optimizing the generator
-            #raise NotImplementedError
+            #  Generate images and calculate the adversarial loss for the generator
+            #  When optimizer_idx == 0 the model is optimizing the generator
 
             #  Generate a batch of images
             gen_data = self.generator(noise_data, gen_input_labels)
@@ -125,9 +123,8 @@ class CIFAR10GANModel(LightningModule):
             log_dict["g_loss"] = loss.item()
 
         if optimizer_idx == 1 or not self.training:
-            #  generate images and calculate the adversarial loss for the discriminator
-            # HINT: when optimizer_idx == 1 the model is optimizing the discriminator
-            # raise NotImplementedError
+            #  Generate images and calculate the adversarial loss for the discriminator
+            #  When optimizer_idx == 1 the model is optimizing the discriminator
 
             #  Generate a batch of images
             gen_data = self.generator(noise_data, gen_input_labels)
