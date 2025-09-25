@@ -86,13 +86,6 @@ class MNISTGANModel(LightningModule):
         return n
 
     def step(self, batch, batch_idx, optimizer_idx=None) -> Tuple[Dict[str, Tensor], Optional[Tensor]]:
-        #  implement the step method of the GAN model.
-        # This function should return both a dictionary of losses
-        # and current loss of the network being optimised.
-        #
-        # When training with pytorch lightning, because we defined 2 optimizers in
-        # the `configure_optimizers` function above, we use the `optimizer_idx` parameter
-        # to keep a track of which network is being optimised.
 
         imgs, labels = batch
         batch_size = imgs.shape[0]
@@ -157,8 +150,7 @@ class MNISTGANModel(LightningModule):
         gen_data = self.generator(self.fixed_noise, self.fixed_label)
         for logger in self.trainer.logger:
             if type(logger).__name__ == "WandbLogger":
-                #  log fake images to wandb (https://docs.wandb.ai/guides/track/log/media)
-                # replace `None` with your wandb Image object
+                # log fake images to wandb (https://docs.wandb.ai/guides/track/log/media)
 
                 grid = make_grid(gen_data, nrow=8, padding=2, normalize=True)
                 image = grid.permute(1, 2, 0).data.numpy()
